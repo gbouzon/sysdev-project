@@ -1,0 +1,22 @@
+.header {
+	overflow: hidden;
+	background-color: #f1f1f1;
+}
+
+.left > a {
+	float: left;
+	font-size: 10px
+	padding: 2px;
+	margin-left: 10px;
+}
+.searchBox {
+	float: right;
+}
+.right > a, .right > p {
+	float: right;
+	font-size: 10px
+	padding: 2px;
+	margin-right: 10px;
+}
+
+
