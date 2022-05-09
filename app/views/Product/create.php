@@ -17,12 +17,11 @@
 			<form method='post' action='' enctype = 'multipart/form-data'>
 				<label class='form-label'>Product name:<input type='text' name='product_name' class='form-control' required/></label> <br>
 				<label class='form-label'>Product price:<input type='double' name='product_price' class='form-control' required/></label> <br>
-				<label class='form-label'>Product available:&ensp;<input id = 'checkboxproduct' type='checkbox' name='product_availability' class='form-check-input'/></label> <br>
-				<label class='form-label'>Product description:<textarea name='product_description' cols="80" class='form-control' ></textarea></label><br>
+				<label class='form-label'>Product quantity:&ensp;<input type='number' min = "0" name='product_quantity' class='form-control' required/></label> <br>
+				<label class='form-label'>Product description:<textarea name='product_description' cols="80" class='form-control' required></textarea></label><br>
 
 				<label class = 'form-label'>Product picture: 
                     <input type = 'file' name = 'product_image' class = 'form-control'></label><br><br>
-				
 				
 				<input class = 'btn btn-primary' type="submit" name='action' value='Add!' class='form-control' />
 			</form>

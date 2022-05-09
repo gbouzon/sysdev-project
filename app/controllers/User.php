@@ -3,6 +3,7 @@
    
         class User extends \app\core\Controller {
             
+            #[\app\filters\Login]
             public function index($user_id) {
                 $myUser = new \app\models\User();
                 $myUser = $myUser->getById($user_id);
@@ -19,8 +20,15 @@
                     if ($user) {
                         if (password_verify($_POST['password'], $user->password_hash)) {
                             $_SESSION['email'] = $user->email;
-                            $_SESSION['user_id'] = $user->user_id;   
-                            header('location:/User/index/'.$user->user_id);                      
+                            $_SESSION['user_id'] = $user->user_id;
+                            $_SESSION['role'] = $user->role;
+
+                            if ($user->role) {
+                                $cart = new \app\controllers\Cart();
+                                $cart = $cart->createCart();
+                            }
+
+                            header('location:/Main/products/');                      
                         }
                         else 
                             $this->view('User/login', "Incorrect email/password combination.");
@@ -38,18 +46,20 @@
                     $newUser->email = trim($_POST['email']);
                     $newUser->first_name = trim($_POST['first_name']);
                     $newUser->last_name = trim($_POST['last_name']);
+                    $newUser->role = 0; //only customers can register so this is always 0
         
                     if (!$newUser->exists() && $_POST['password'] == $_POST['password_confirm']) {
                         $newUser->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
         
                         $newUser->insert();
-                        header('location:/User/login' ); 
+                        header('location:/User/login'); 
                     } else {
                         $this->view('User/register', "The user account with that email already exists.");
                     }
                 }
             }
 
+            #[\app\filters\Login]
             function update($user_id) {
                 $user = new \app\models\User();
                 $user = $user->getById($user_id);//get the specific user
@@ -69,6 +79,7 @@
                     header('location:/User/index/' . $user_id); // in case manipulating the url
             }
 
+            #[\app\filters\Login]
             function delete($user_id) {
                 if ($user_id == $_SESSION['user_id']) {
                     $user = new \app\models\User();

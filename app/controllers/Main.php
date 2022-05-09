@@ -3,10 +3,25 @@
 
         class Main extends \app\core\Controller {
 
+            //displays products 
             public function index() { 
-                $this->view('Main/index');
+                $product = new \app\models\Product();
+                $products = $product->getProducts();
+                $this->view('Main/index', $products);
             }
 
+            //home page with shop now button
+            public function home() {
+                $this->view('Main/home');
+            }
+
+            public function summary() {
+                $product = new \app\models\Product();
+                $products = $product->getProducts();
+                $this->view('Main/summary', $products);
+            }
+
+            //for image uploads
             public static function imageUpload($file_uploaded) {
                 $filename = false;
                 $file = $_FILES[$file_uploaded];

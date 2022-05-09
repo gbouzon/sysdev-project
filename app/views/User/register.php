@@ -15,13 +15,13 @@
 			<h1>Register your user account</h1>
 		
 			<form method='post' action=''>
-				<label class='form-label'>First name:<input type='text' name='first_name' class='form-control'  required/></label>
+				<label class='form-label'>First name:<input type='text' name='first_name' class='form-control'  required/></label> <br>
 				<label class='form-label'>Last name:<input type='text' name='last_name' class='form-control'  required/></label> <br>
 				<label class='form-label'>Email:<input type='email' name='email' class='form-control'  required/></label><br>
 				<label class='form-label'>Password:<input type='password' name='password' class='form-control'  required/></label><br>
 				<label class='form-label'>Password confirmation:<input type='password' name='password_confirm' class='form-control'  required /></label><br>
 				
-				<input type="submit" name='action' value='Register!' class='form-control' />
+				<input type="submit" name='action' value='Register!' class='btn btn-primary' />
 			</form>
 			<?php
 				if ($data)

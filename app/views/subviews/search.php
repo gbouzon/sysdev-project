@@ -11,7 +11,7 @@
             <br> <h1 class="text-center">Search</h1> <br>
             <?php
                 if ($data != null) {
-
+                    $this->view('subviews/products', $data);
                 }
                 else 
                     echo "The search returned no results."

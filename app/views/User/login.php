@@ -20,7 +20,7 @@
 			No account?<a href="/User/register">Register here.</a> <br>
 
 			<?php
-				if($data)
+				if ($data)
 					echo "<div class='alert alert-danger' role='alert'> $data</div>";
 			?>	
 		</div>

@@ -44,5 +44,13 @@
                 $STMT->execute();
                 $STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Product");
                 return $STMT->fetchAll();
+            }
+
+            function getProductsByName($term) {
+                $SQL = 'SELECT * FROM product WHERE product_name LIKE :term';
+                $STMT = self::$_connection->prepare($SQL);
+                $STMT->execute(['term'=>"%$term%"]);
+                $STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Product");
+                return $STMT->fetchAll();
             } 
         }

@@ -23,17 +23,29 @@
                 return $STMT->fetch();
             }
 
+            function getAddress($user_id) {
+                $SQL = 'SELECT address.street_name, address.street_number, address.city,  address.province, address.postal_code 
+                    FROM address
+                    INNER JOIN user
+                    ON address.address_id = user.address_id
+                    WHERE user_id = :user_id';
+                $STMT = self::$_connection->prepare($SQL);
+                $STMT->execute(['user_id'=>$user_id]);
+                $STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Address");
+                return $STMT->fetch();
+            }
+
             function exists() {
                 return $this->get($this->email) != false;
             }
 
             //check inserts, updates and deletes later
             function insert() {
-                $SQL = 'INSERT INTO user(first_name, last_name, email, password_hash)   
-                    VALUES(:first_name, :last_name, :email, :password_hash';
+                $SQL = 'INSERT INTO user(first_name, last_name, email, password_hash, role)   
+                    VALUES(:first_name, :last_name, :email, :password_hash, :role)';
 		        $STMT = self::$_connection->prepare($SQL);
 		        $STMT->execute(['first_name'=>$this->first_name,'last_name'=>$this->last_name, 
-                    'email'=>$this->email,'password_hash'=>$this->password_hash]);
+                    'email'=>$this->email,'password_hash'=>$this->password_hash, 'role'=>$this->role]);
             }
 
             //check inserts, updates and deletes later

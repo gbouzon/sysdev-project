@@ -12,7 +12,7 @@
                 $this->view('subviews/navigation');
             ?>
             <div style = 'text-align:center;'>
-                <h1><?= "Profile of " . $data->first_name . " " . $data->last_name?></h1>
+                <h1>Your Profile</h1>
                 <form method='post' action=''>
                     <label class='form-label'>First name:<input disabled type='text' name='first_name' class='form-control' value = '<?= $data->first_name?>' /></label>
                     <label class='form-label'>Last name:<input disabled type='text' name='last_name' class='form-control'value = '<?= $data->last_name?>'  /></label> <br>
@@ -22,8 +22,10 @@
                 <?php
 
                     if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $data->user_id) {
-                        echo "<a class=\"btn btn-primary\" href='/User/update/$data->user_id' class='m-2' >". "Update User" ." </a>
-                        &ensp;<a class=\"btn btn-primary\" href='/User/delete/$data->user_id' class='m-2' >". "Delete User" ."</a>";
+                        echo "<a class=\"btn btn-primary\" href='/User/update/$data->user_id' class='m-2' >". "Update User" ." </a>";
+
+                        if (isset($_SESSION['role']) && $_SESSION['role'] != '1') 
+                            echo "&ensp;<a class=\"btn btn-primary\" href='/User/delete/$data->user_id' class='m-2' >". "Delete User" ."</a>";
                     }
             echo "</div>"; 
                 ?>

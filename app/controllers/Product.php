@@ -23,12 +23,16 @@
                         $product = new \app\models\Product();
                         $product->product_name = trim($_POST['product_name']);
                         $product->product_image = $filename; 
-                        $product->price = trim($_POST['product_price']);
-                        $product->description = trim($_POST['product_description']);
-                        $product->quantity = $_POST['product_quantity'];
+                        if (trim($_POST['product_price']) < 0)
+                            $this->view('Product/create', "Price not valid. Must be greater than 0.");
+                        else {
+                            $product->price = trim($_POST['product_price']);
+                            $product->description = trim($_POST['product_description']);
+                            $product->quantity = $_POST['product_quantity'];
 
-                        $product->insert();
-                        header("location:/Product/index/". $product->product_id);
+                            $product->insert();
+                            header("location:/Main/products/");
+                        }
                     }
             }
 
@@ -54,7 +58,7 @@
                     $product->quantity = trim($_POST['product_quantity']);
 
                     $product->update($product_id);        
-                    header("location:/Product/index/". $product->product_id);
+                    header("location:/Main/products/");
                 }
             }
 
@@ -66,5 +70,6 @@
                     unlink('pictures\\' . $product->product_image);
                         
                 $product->delete();
+                header("location:/Main/products/");
             } 
         }
