@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class='container'>
-            <br> <h1 class="text-center">Search</h1> <br>
+            <br> <h1 style = 'color:white;' class="text-center">Search</h1> <br>
             <?php
                 if ($data != null) {
                     $this->view('subviews/products', $data);
