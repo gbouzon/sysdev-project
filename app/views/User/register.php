@@ -1,18 +1,25 @@
 <html>
 	<head>
+	   
 		<!-- CSS only -->
+		<link rel="stylesheet" type="text/css" href="/app/public/css/navbar.css">
 		<link rel="stylesheet" type="text/css" href="/app/public/css/register.css">
 			<title>Registration</title>
 	</head>
 	<body>
-	<div class='container'>
+	
+	<?php
+		$this->view("subviews/navbar");
+	?>
 
+	
+	<div class='container'>
 <h1 id="title"><?= _("Register Here!") ?></h1>
 <form method='post' action=''>
 <div id="name">
-First Name:</div><label class='form-label'><input type='text' name='username' class='form-control' required/></label><br>
+First Name:</div><label class='form-label'><input type='text' name='first_name' class='form-control' required/></label><br>
 <div id="Contact">
-Last Name:</div><label class='form-label'><input type='tel' name='contact' class='form-control' required/></label><br>
+Last Name:</div><label class='form-label'><input type='tel' name='last_name' class='form-control' required/></label><br>
 <div id="password">
 <div id="email">
 Email:</div><label class='form-label'><input type='email' name='email' class='form-control'required /></label><br>

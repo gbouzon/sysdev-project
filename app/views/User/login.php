@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	
 		<!-- CSS only -->
+		<link rel="stylesheet" type="text/css" href="/app/public/css/navbar.css">
 		<link rel="stylesheet" type="text/css" href="/app/public/css/login.css">
 		
 		
 	<title>Login</title>
 	</head>
+	<?php
+		$this->view("subviews/navbar");
+	?>
 	<body>
 		<div class='container'>
+		
 			
 			<h1 id="title">Log into your user account</h1>
 			<form method='post' action=''>

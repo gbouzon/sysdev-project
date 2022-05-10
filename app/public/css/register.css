@@ -29,7 +29,7 @@ body{
 }
 .container form{
   padding: 0 40px;
-  box-sizing: border-box;
+  box-sizing: fixed;
 }
 form .form-label{
     position: relative;

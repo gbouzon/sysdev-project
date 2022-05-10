@@ -7,7 +7,7 @@
                 foreach ($data as $product) {
                     echo "<div class='col-lg-3 d-flex align-items-stretch'>
                     <div class='card' style='width: 18rem;text-align:center;'>
-                        <img class=\"card-img-top\" alt = '' src = '\\pictures\\$product->product_image' style = 'width:280px;max-height:700px;display:block;margin-left:auto;margin-right:auto;'> 
+                        <img class=\"card-img-top\" alt = '' src = '\\pictures\\$product->product_image' style = 'width:280px;height:200px;display:block;margin-left:auto;margin-right:auto;'> 
                         <div class='card-body' style = 'background-color:#302c3c;'> 
                         <h5 class=\"card-title\"> <a href = '/Product/index/$product->product_id'>$product->product_name</a> </h5>
                         <h6 class=\"card-subtitle mb-2 text-muted\">Price: from $$product->price CAD</h6> <br>";
