@@ -23,7 +23,7 @@
                             $_SESSION['user_id'] = $user->user_id;
                             $_SESSION['role'] = $user->role;
 
-                            if ($user->role) {
+                            if ($user->role == 0) {
                                 $cart = new \app\controllers\Cart();
                                 $cart = $cart->createCart();
                             }
