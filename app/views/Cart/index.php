@@ -29,7 +29,7 @@
                             
                             $sum += $order_detail->price;     
                         }
-                        echo " <tr><th id='title'>Subtotal</th><th></th><th></th><th></th><th>$ $sum</th></tr>";
+                        echo " <tr><th id='title'>Subtotal</th><th></th><th></th><th></th><th  id='title'>$ $sum</th></tr>";
                     }
                     else 
                         echo "<tr><td colspan = '5' id='title'>Your cart is empty!</td></tr>";      

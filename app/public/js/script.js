@@ -9,7 +9,7 @@ searchIcon.addEventListener('click', () => {
 
     setTimeout(() => {
         searchInput.focus();
-    }, 300);
+    }, 1000);
 });
 
 closeIcon.addEventListener('click', () => {
