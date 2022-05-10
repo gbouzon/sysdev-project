@@ -48,10 +48,7 @@
                         }
                 }
             }
-            if (isset($_SESSION['role']) && $_SESSION['role'] == '1') {
-                echo " <br> <br><a class=\"btn btn-primary\" href='/Product/create/' 
-                        class='m-2'>Add Product </a>";
-            }
+            
             else if ($data == null)
                 echo "<h3>No products have been added!</h3>";
         ?>

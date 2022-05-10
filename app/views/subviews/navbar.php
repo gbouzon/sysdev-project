@@ -15,8 +15,10 @@
                         <li><a href='/Cart/index'>Cart</a></li>
             <?php } else if ($_SESSION['role'] == '1') { ?>
             
+                    
                     <li><a href='/Main/products'>Manage Products</a></li>
                     <li><a href='/Main/summary'>View Inventory</a></li>
+                    <li><a href='/Product/create'>Add Product</a></li>
             <?php } }?> 
 
        

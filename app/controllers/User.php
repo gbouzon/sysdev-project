@@ -6,7 +6,10 @@
             #[\app\filters\Login]
             public function index($user_id) {
                 $myUser = new \app\models\User();
-                $myUser = $myUser->getById($user_id);
+                if ($user_id == $_SESSION['user_id']) 
+                    $myUser = $myUser->getById($user_id);
+                else
+                    $myUser = $myUser->getById($_SESSION['user_id']);
                 $this->view('User/index', $myUser);
             }
 
@@ -76,7 +79,7 @@
                     }
                 }
                 else
-                    header('location:/User/index/' . $user_id); // in case manipulating the url
+                    header('location:/User/update/' . $user_id); // in case manipulating the url
             }
 
             #[\app\filters\Login]

@@ -22,6 +22,8 @@
 					else if ($_SESSION['role'] == '1') {
 						echo "<li class=\"nav-item active\"><a class= \"nav-link\" href='/Main/products'>Manage Products</a></li>";
 						echo "<li class=\"nav-item active\"><a class= \"nav-link\" href='/Main/summary'>View Inventory</a></li>";
+						echo "<li class=\"nav-item active\"><a class= \"nav-link\" href='/Product/create'>Add Product</a></li>";
+						//<li><a href='/Product/create'>Add Product</a></li>
 					}
 					
 				}
