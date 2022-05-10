@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" type="text/css" href="/app/public/css/navbar.css">
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
 	<div class="collapse navbar-collapse" >
 		<ul class="navbar-nav">

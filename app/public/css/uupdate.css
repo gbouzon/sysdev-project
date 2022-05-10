@@ -35,8 +35,7 @@ body{
 }
 form .form-labels{
     position: relative;
-    border-bottom: 2px solid #3b08e5;
-    margin: 20px 20px;
+   
 }
 .form-labels input{
     color: #ffffff;

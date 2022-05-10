@@ -112,8 +112,8 @@
     }
     .button a {
         padding: 7.5px 15px;
-        background: teal;
-        border: 1px #006d6d solid;
+        background: rgb(0, 87, 128);
+        border: 1px #003c6d solid;
         border-radius:50em;
     }
     .button.secondary a {
@@ -124,8 +124,8 @@
         transition:all .25s;
     }
     .button:not(.secondary) a:hover {
-        background: #006d6d;
-        border-color: #005959;
+        background: #00266d;
+        border-color: #042a7c;
     }
     .button.secondary a:hover {
         color: #ddd;
