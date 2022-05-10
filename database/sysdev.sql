@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2022 at 01:13 PM
+-- Generation Time: May 10, 2022 at 08:01 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -24,25 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `address`
+-- Table structure for table `addressapi`
 --
 
-CREATE TABLE `address` (
-  `address_id` int(11) NOT NULL,
-  `street_name` varchar(30) DEFAULT NULL,
-  `street_number` varchar(10) DEFAULT NULL,
-  `city` varchar(30) DEFAULT NULL,
-  `province` varchar(30) DEFAULT NULL,
-  `country` varchar(30) DEFAULT NULL,
-  `postal_code` varchar(6) DEFAULT NULL
+CREATE TABLE `addressapi` (
+  `postal` varchar(10) NOT NULL,
+  `result` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `address`
+-- Dumping data for table `addressapi`
 --
 
-INSERT INTO `address` (`address_id`, `street_name`, `street_number`, `city`, `province`, `country`, `postal_code`) VALUES
-(1, 'Your M', '120', 'montreal', 'QC', 'Canada', 'H2E1T2');
+INSERT INTO `addressapi` (`postal`, `result`) VALUES
+('GGG', '{}'),
+('H4G', '{\"post code\": \"H4G\", \"country\": \"Canada\", \"country abbreviation\": \"CA\", \"places\": [{\"place name\": \"Verdun North\", \"longitude\": \"-73.5798\", \"state\": \"Quebec\", \"state abbreviation\": \"QC\", \"latitude\": \"45.4644\"}]}'),
+('J3R', '{\"post code\": \"J3R\", \"country\": \"Canada\", \"country abbreviation\": \"CA\", \"places\": [{\"place name\": \"Sorel Southwest\", \"longitude\": \"-73.1263\", \"state\": \"Quebec\", \"state abbreviation\": \"QC\", \"latitude\": \"46.0476\"}]}'),
+('H1H', '{\"post code\": \"H1H\", \"country\": \"Canada\", \"country abbreviation\": \"CA\", \"places\": [{\"place name\": \"Montreal North South\", \"longitude\": \"-73.6524\", \"state\": \"Quebec\", \"state abbreviation\": \"QC\", \"latitude\": \"45.5829\"}]}'),
+('H1L', '{\"post code\": \"H1L\", \"country\": \"Canada\", \"country abbreviation\": \"CA\", \"places\": [{\"place name\": \"Mercier North\", \"longitude\": \"-73.5362\", \"state\": \"Quebec\", \"state abbreviation\": \"QC\", \"latitude\": \"45.5943\"}]}'),
+('H4L', '{\"post code\": \"H4L\", \"country\": \"Canada\", \"country abbreviation\": \"CA\", \"places\": [{\"place name\": \"Saint-Laurent Inner Northeast\", \"longitude\": \"-73.6974\", \"state\": \"Quebec\", \"state abbreviation\": \"QC\", \"latitude\": \"45.5269\"}]}'),
+('H4S', '{\"post code\": \"H4S\", \"country\": \"Canada\", \"country abbreviation\": \"CA\", \"places\": [{\"place name\": \"Saint-Laurent Southwest\", \"longitude\": \"-73.754\", \"state\": \"Quebec\", \"state abbreviation\": \"QC\", \"latitude\": \"45.4958\"}]}'),
+('H4Z', '{\"post code\": \"H4Z\", \"country\": \"Canada\", \"country abbreviation\": \"CA\", \"places\": [{\"place name\": \"Tour de la Bourse\", \"longitude\": \"-73.5621\", \"state\": \"Quebec\", \"state abbreviation\": \"QC\", \"latitude\": \"45.5003\"}]}'),
+('H4H', '{\"post code\": \"H4H\", \"country\": \"Canada\", \"country abbreviation\": \"CA\", \"places\": [{\"place name\": \"Verdun South\", \"longitude\": \"-73.5818\", \"state\": \"Quebec\", \"state abbreviation\": \"QC\", \"latitude\": \"45.4532\"}]}'),
+('H4D', '{}'),
+('H4A', '{\"post code\": \"H4A\", \"country\": \"Canada\", \"country abbreviation\": \"CA\", \"places\": [{\"place name\": \"Notre-Dame-de-Gr\\u00d4ce Northeast\", \"longitude\": \"-73.6252\", \"state\": \"Quebec\", \"state abbreviation\": \"QC\", \"latitude\": \"45.4781\"}]}');
 
 -- --------------------------------------------------------
 
@@ -68,7 +73,8 @@ INSERT INTO `order` (`order_id`, `user_id`, `total`, `createdAt`, `order_status`
 (3, 1, 0, '2022-05-09 09:00:46', 0),
 (4, 1, 0, '2022-05-09 09:03:21', 0),
 (5, 1, 0, '2022-05-09 09:21:48', 0),
-(6, 1, 0, '2022-05-09 10:32:18', 0);
+(6, 1, 0, '2022-05-09 10:32:18', 0),
+(7, 1, 0, '2022-05-09 19:20:31', 0);
 
 -- --------------------------------------------------------
 
@@ -95,7 +101,7 @@ CREATE TABLE `product` (
   `product_id` int(11) NOT NULL,
   `product_image` varchar(50) NOT NULL DEFAULT 'blank.png',
   `product_name` varchar(30) NOT NULL,
-  `description` varchar(500) NOT NULL,
+  `description` text NOT NULL,
   `price` double NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -120,27 +126,26 @@ CREATE TABLE `user` (
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `password_hash` varchar(63) NOT NULL,
-  `address_id` int(11) DEFAULT NULL,
-  `role` tinyint(4) NOT NULL DEFAULT 0 COMMENT 'o is for customer, 1 is for admin, 2 is for supervisor and 3 is for employee'
+  `role` tinyint(4) NOT NULL DEFAULT 0 COMMENT 'o is for customer, 1 is for admin, 2 is for supervisor and 3 is for employee',
+  `street_name` varchar(30) DEFAULT NULL,
+  `street_number` varchar(10) DEFAULT NULL,
+  `city` varchar(30) DEFAULT NULL,
+  `province` varchar(30) DEFAULT NULL,
+  `country` varchar(30) DEFAULT NULL,
+  `postal_code` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `email`, `first_name`, `last_name`, `password_hash`, `address_id`, `role`) VALUES
-(1, 'admin@gmail.com', 'ADMIN', 'ADMIN', '$2y$10$LFrXr6u9SDTpV05WgcpvSulwKzuCRLCu239MzPdE3rL5uaxDgEwti', NULL, 1),
-(3, 'test@gmail.com', 'First', 'Last', '$2y$10$zY3WZkwGlV9mJCLYyafePeY/lox6cGRTDOlMkC3VZqXSpruNXsJuy', 1, 0);
+INSERT INTO `user` (`user_id`, `email`, `first_name`, `last_name`, `password_hash`, `role`, `street_name`, `street_number`, `city`, `province`, `country`, `postal_code`) VALUES
+(1, 'admin@gmail.com', 'ADMIN', 'ADMIN', '$2y$10$LFrXr6u9SDTpV05WgcpvSulwKzuCRLCu239MzPdE3rL5uaxDgEwti', 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'test@gmail.com', 'First', 'Last', '$2y$10$zY3WZkwGlV9mJCLYyafePeY/lox6cGRTDOlMkC3VZqXSpruNXsJuy', 0, '', '', '', '', '', '');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `address`
---
-ALTER TABLE `address`
-  ADD PRIMARY KEY (`address_id`);
 
 --
 -- Indexes for table `order`
@@ -168,24 +173,17 @@ ALTER TABLE `product`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `user_email_unique` (`email`),
-  ADD KEY `user_address_fk` (`address_id`);
+  ADD UNIQUE KEY `user_email_unique` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `address`
---
-ALTER TABLE `address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `order_detail`
@@ -221,12 +219,6 @@ ALTER TABLE `order`
 ALTER TABLE `order_detail`
   ADD CONSTRAINT `orderdetail_order_fk` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `orderdetail_product_fk` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_address_fk` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
