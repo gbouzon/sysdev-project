@@ -42,7 +42,8 @@
             }
         
             function register() { 
-                if (!isset($_POST['action'])) 
+                // isset = determines if a variable is set and is not 
+                if (!isset($_POST['action']))  // isset[button]
                     $this->view('User/register');
                 else { 
                     $newUser = new \app\models\User();

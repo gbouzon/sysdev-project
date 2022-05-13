@@ -10,6 +10,8 @@
 
                     if (isset($_POST['action'])) 
                         $this->view('subviews/search', $products);
+
+                        
                 }
             }
         }
