@@ -1,0 +1,29 @@
+
+#button{
+    position: fixed;
+    position: absolute;
+    display: block;
+    scroll-margin-block-end: 45rem !important;
+    scroll-margin-block-start: 45rem !important;
+    margin-left: 46% !important;
+    margin-right: 46% !important;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+
+}
+
+.row{
+    margin-left: 6% !important;
+    margin-right: 15% !important;
+}
+
+#clearCart{
+    margin-left: 16% !important;
+    margin-right: 48% !important;
+}
+
+#orderPlace{
+    margin-left: 16% !important;
+    margin-right: 1% !important;
+    
+}

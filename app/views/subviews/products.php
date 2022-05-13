@@ -1,6 +1,7 @@
 <head>
     <title>Products</title>
     <link rel="stylesheet" type="text/css" href="/app/public/css/products.css"> 
+    <link rel="stylesheet" type="text/css" href="/app/public/css/force.css"> 
     
         
 </head>
