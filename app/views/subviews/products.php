@@ -50,7 +50,7 @@
             }
             
             else if ($data == null)
-                echo "<h3>No products have been added!</h3>";
+                echo "<h3 style = 'color:white;'>No products have been added!</h3>";
         ?>
     </div>
 </body>
