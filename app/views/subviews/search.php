@@ -11,7 +11,8 @@
             <br> <h1 style = 'color:white;' class="text-center">Search</h1> <br>
             <?php
                 if ($data != null) {
-                    $this->view('subviews/products', $data);
+                    $this->view('subviews/productsList', $data);
+                    echo "<br><br>";
                 }
                 else 
                     echo "<h3 style = 'color:white;text-align:center;'>The search returned no results.</h3><br>";
