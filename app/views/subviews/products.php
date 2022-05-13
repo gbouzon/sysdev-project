@@ -2,11 +2,10 @@
     <title>Products</title>
     <link rel="stylesheet" type="text/css" href="/app/public/css/products.css"> 
     <link rel="stylesheet" type="text/css" href="/app/public/css/force.css"> 
-    
         
 </head>
 
-<body style = "background-color: #302c3c;">
+<body style = "background-color: #302c3c;overflow:scroll;">
     <h2 class = "text-center" style="text-align:center;white-space:pre-wrap;color:white;">Our Products:</h2><br><br>
     <p style="text-align:center;white-space:pre-wrap;color:white;">Feel great, have a fresh scent with sophisticated aroma, and keep your beard healthy.</p> <br> <br>
     <div class="row" style='text-align:center;'>
@@ -35,7 +34,7 @@
                                         class='m-2'>Update Product </a> <br> <br>
 
                                         <a class=\"btn btn-primary\" href='/Product/delete/$product->product_id' 
-                                        class='m-2'>Delete Product </a> </div> </div></div>";
+                                        class='m-2' onclick = 'return confirm('Are you sure you want to delete this product?')'>Delete Product </a> </div> </div></div>";
                             }
                         }
                         else {
@@ -51,7 +50,7 @@
             }
             
             else if ($data == null)
-                echo "<h3>No products have been added!</h3>";
+                echo "<h3 style = 'color:white;'>No products have been added!</h3>";
         ?>
     </div>
 </body>

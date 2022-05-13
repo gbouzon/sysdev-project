@@ -13,7 +13,7 @@
             
         <title>The Gentlemen's Touch</title>
     </head>
-    <body>
+    <body style = 'overflow:scroll;'>
         <div class='container' style='text-align:center;'>
             <?php
                 $this->view('subviews/navigation');

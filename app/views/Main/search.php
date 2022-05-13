@@ -3,8 +3,7 @@
 		<title>Search</title>
 		
 	</head>
-	<body>
-		
+	<body style = 'overflow:scroll;'>
 		<form method="post" action = "">
 			<input type="text" name="search">
 			<button type="submit" name="action">Search</button>
