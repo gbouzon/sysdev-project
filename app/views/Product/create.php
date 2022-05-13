@@ -30,7 +30,7 @@
 			</form>
 			<?php
 				if ($data)
-					echo "<div class='alert alert-danger' role='alert'> $data</div>";
+					echo "<div style = 'color:red;'class='alert alert-danger' role='alert'> $data</div>";
 			?>
 		</div>
 	</body>

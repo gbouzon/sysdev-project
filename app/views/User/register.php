@@ -30,7 +30,7 @@
 			Already have an account?<a href="/User/login">Login</a> <br>
 			<?php
 				if ($data)
-					echo "<div class='alert alert-danger' role='alert'> $data</div>";
+					echo "<div style='color:red;'class='alert alert-danger' role='alert'> $data</div>";
 				?>
 			</div>
 		</div>
