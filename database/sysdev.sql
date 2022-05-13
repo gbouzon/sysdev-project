@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2022 at 04:47 AM
+-- Generation Time: May 13, 2022 at 05:32 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -77,7 +77,9 @@ INSERT INTO `order` (`order_id`, `user_id`, `total`, `createdAt`, `order_status`
 (7, 1, 0, '2022-05-09 19:20:31', 0),
 (11, 6, 0, '2022-05-10 20:22:53', 0),
 (13, 8, 0, '2022-05-13 01:47:36', 0),
-(14, 9, 0, '2022-05-13 02:35:27', 0);
+(14, 9, 0, '2022-05-13 02:35:27', 0),
+(15, 8, 0, '2022-05-13 13:20:07', 0),
+(16, 10, 0, '2022-05-13 15:03:47', 0);
 
 -- --------------------------------------------------------
 
@@ -103,7 +105,9 @@ INSERT INTO `order_detail` (`order_detail_id`, `order_id`, `product_id`, `quanti
 (148, 14, 3, 2, 25, 50),
 (151, 14, 10, 1, 40, 40),
 (153, 14, 8, 1, 20, 20),
-(154, 14, 9, 1, 80, 80);
+(154, 14, 9, 1, 80, 80),
+(155, 16, 9, 1, 80, 80),
+(157, 16, 10, 1, 40, 40);
 
 -- --------------------------------------------------------
 
@@ -126,10 +130,10 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`product_id`, `product_image`, `product_name`, `description`, `price`, `quantity`) VALUES
 (1, 'beard_oil.png', 'Beard Oil', 'Beard oil is a conditioner used to moisturize and soften beard hair. It\'s also effective for moisturizing the skin beneath your beard. People use beard oil to keep their beards looking fuller, softer, and tamer. It\'s also sometimes used to promote beard growth.', 40, 9),
-(3, 'beard_balm.jpg', 'Beard Balm', 'A beard balm works as a leave-in conditioner which will moisturize, condition, style and soften your beard. All of these ingredients are combined to help promote proper beard growth and keep your beard healthy and smelling its best.', 25, 0),
+(3, '627e75a295875.png', 'Beard Balm', 'A beard balm works as a leave-in conditioner which will moisturize, condition, style and soften your beard. All of these ingredients are combined to help promote proper beard growth and keep your beard healthy and smelling its best.', 25, 5),
 (8, 'blank.png', 'Beard Serum', 'Beard serum allow you to growth your beard at the right pace. Serum works by increasing the blood flow to the capillaries in the follicles. Once the follicles receive the nutrients they need, the hairs grow longer, stronger, and lustrous.\r\n', 20, 4),
-(9, 'blank.png', 'Kit', 'This is a kit of beard products.', 80, 2),
-(10, 'blank.png', 'Simple Kit', 'This is a simpler kit of beard products.', 40, 7);
+(9, 'kit2.png', 'Kit', 'This is a kit of beard products.', 80, 1),
+(10, 'kit.png', 'Simple Kit', 'This is a simpler kit of beard products.', 40, 6);
 
 -- --------------------------------------------------------
 
@@ -161,7 +165,8 @@ INSERT INTO `user` (`user_id`, `email`, `first_name`, `last_name`, `password_has
 (3, 'test@gmail.com', 'First', 'Last', '$2y$10$zY3WZkwGlV9mJCLYyafePeY/lox6cGRTDOlMkC3VZqXSpruNXsJuy', 0, '', '', '', '', '', ''),
 (6, 'test2@gmail.com', 'Test', 'Test2', '$2y$10$YnhkNphlusl2A7em7T/px.rQ3h5h.2IuFE5eJt9RAWKHp2Vg6vtKa', 0, NULL, NULL, NULL, NULL, NULL, NULL),
 (8, 'marcio@bouzon.com.br', 'Marcio', 'Bouzon', '$2y$10$yMAAiXdEJnBVjr8Bd/kbA.hfRVmlTzeEcnojZG4DR5fZkAt8IQNJi', 0, NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 'ga@bouzon.com.br', 'Giuliana', 'Bouzon', '$2y$10$F7dcIzFeYB9NY1svR.D08eZsnw7GHGBALD7fW.lt0gqOzk.6Ftiim', 0, NULL, NULL, NULL, NULL, NULL, NULL);
+(9, 'ga@bouzon.com.br', 'Giuliana', 'Bouzon', '$2y$10$F7dcIzFeYB9NY1svR.D08eZsnw7GHGBALD7fW.lt0gqOzk.6Ftiim', 0, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 'a@b.c', 'Julian', 'Lebensold', '$2y$10$iYj4Ffv/uQlM9KG0zinQsu9Zif.059iTyFiSk4r3HFzUIkI/CA1La', 0, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -203,13 +208,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -221,7 +226,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
