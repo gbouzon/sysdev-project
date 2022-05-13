@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="/app/public/css/register.css">
 			<title>Registration</title>
 	</head>
-	<body>
+	<body style = 'overflow:scroll;'>
 		<?php
 			$this->view("subviews/navbar");
 		?>
@@ -23,7 +23,7 @@
 					Password:</div><label class='form-label'><input type='password' name='password' class='form-control' required/></label><br>
 				<div id="password">
 				Password Confirmation:</div><label class='form-label'><input type='password' name='password_confirm' class='form-control' required/></label><br>
-				
+
 				<input type="submit" name='action' value='Register!' class='form-control' />
 			</form>
 			<div class='signup-link'>

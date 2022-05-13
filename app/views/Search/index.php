@@ -9,7 +9,7 @@
     />
     
 	</head>
-	<body>
+	<body style = 'overflow:scroll;'>
 
 		<form method="post" action = "" style = "position:absolute;top:10px;right:100px;">
 			<div class="search-input-wrapper">

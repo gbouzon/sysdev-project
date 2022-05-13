@@ -12,7 +12,7 @@
 	<?php
 		$this->view("subviews/navbar");
 	?>
-	<body>
+	<body style = 'overflow:scroll;'>
 		<div class='container'>
 		
 			
