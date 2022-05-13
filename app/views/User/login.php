@@ -29,7 +29,7 @@
 			</div>
 			<?php
 				if ($data)
-					echo "<div class='alert alert-danger' role='alert'> $data</div>";
+					echo "<div style= 'color:white;'class='alert alert-danger' role='alert'> $data</div>";
 			?>	
 		</div>
 	</body>
